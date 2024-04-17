@@ -53,6 +53,10 @@ public class DemoApplication {
     }
 
 
+    // todo look into IntegrationFlowContext
+    //  for dynamic launching of parameterized flows
+    //  https://docs.spring.io/spring-integration/api/org/springframework/integration/dsl/context/IntegrationFlowContext.html
+
     @Requests
     @Bean
     DirectChannelSpec requestsMessageChannel() {
