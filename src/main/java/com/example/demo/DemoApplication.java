@@ -5,6 +5,9 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.integration.annotation.Gateway;
+import org.springframework.integration.annotation.IntegrationComponentScan;
+import org.springframework.integration.annotation.MessagingGateway;
 import org.springframework.integration.dsl.DirectChannelSpec;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.MessageChannels;
@@ -19,6 +22,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootApplication
+@IntegrationComponentScan
 public class DemoApplication {
 
     public static void main(String[] args) {
@@ -52,6 +56,13 @@ public class DemoApplication {
         };
     }
 
+
+    /*@MessagingGateway
+    interface OrderHandler {
+
+        @Gateway (requestChannel =  REQUESTS_MESSAGE_CHANNEL)
+        void handle (Order order) ;
+    }*/
 
     // todo look into IntegrationFlowContext
     //  for dynamic launching of parameterized flows
